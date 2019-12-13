@@ -10,12 +10,10 @@ import com.restaurants.databinding.ActivityFilterBinding
 import com.restaurants.presentation.App
 import com.restaurants.presentation.common.BaseActivity
 import com.restaurants.presentation.common.ViewModelFactory
-import com.restaurants.presentation.main.RestaurantAdapter
 import javax.inject.Inject
 
 class FilterActivity : BaseActivity() {
 
-    private lateinit var adapter: RestaurantAdapter
     private lateinit var viewModel: FilterViewModel
     private lateinit var binding: ActivityFilterBinding
 
