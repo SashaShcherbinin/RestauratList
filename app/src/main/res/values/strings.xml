@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ButtonActions</string>
+    <string name="main_button_action">Press ME</string>
+    <string name="general_label_loading">Loading...</string>
+</resources>

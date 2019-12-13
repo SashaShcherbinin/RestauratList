@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.restaurants.presentation.main.RestaurantsViewModel" />
+
+        <variable
+            name="item"
+            type="com.restaurants.domain.model.Restaurant" />
+
+        <variable
+            name="isFavorite"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="@{item.name}"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Restaurant name" />
+
+        <TextView
+            android:id="@+id/statusTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{`status: ` + item.status.name()}"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameTv"
+            tools:text="status" />
+
+        <TextView
+            android:id="@+id/averageProductPriceTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{`averagePrice: ` + item.averageProductPrice}"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/ratingAverageTv"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/statusTv"
+            tools:text="averageProductPrice" />
+
+        <TextView
+            android:id="@+id/bestMatchTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{`bestMatch: ` + item.bestMatch}"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/deliveryCostsTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/averageProductPriceTv"
+            tools:text="bestMatch" />
+
+        <TextView
+            android:id="@+id/deliveryCostsTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{`deliveryCosts: ` + item.deliveryCosts}"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/ratingAverageTv"
+            app:layout_constraintStart_toEndOf="@+id/bestMatchTv"
+            app:layout_constraintTop_toBottomOf="@+id/ratingAverageTv"
+            tools:text="deliveryCosts" />
+
+        <TextView
+            android:id="@+id/distanceTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{`distance: ` + item.distance}"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/minCostTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deliveryCostsTv"
+            tools:text="distance" />
+
+        <TextView
+            android:id="@+id/minCostTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{`minCost: ` + item.minCost}"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/ratingAverageTv"
+            app:layout_constraintStart_toEndOf="@+id/distanceTv"
+            app:layout_constraintTop_toBottomOf="@+id/deliveryCostsTv"
+            tools:text="minCost" />
+
+        <TextView
+            android:id="@+id/newestTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="4dp"
+            android:text="@{`newest: ` + item.newest}"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/popularityTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/minCostTv"
+            tools:text="newest" />
+
+        <TextView
+            android:id="@+id/popularityTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{`popularity: ` + item.popularity}"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/newestTv"
+            app:layout_constraintTop_toBottomOf="@+id/minCostTv"
+            tools:text="popularity" />
+
+        <TextView
+            android:id="@+id/ratingAverageTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{`ratingAverage: ` + item.ratingAverage}"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/averageProductPriceTv"
+            app:layout_constraintTop_toBottomOf="@+id/statusTv"
+            tools:text="ratingAverage" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="?selectableItemBackground"
+            android:onClick="@{() -> vm.toggleFavorite(isFavorite, item)}"
+            android:padding="8dp"
+            android:src="@{isFavorite ? @drawable/ic_favorite_checked : @drawable/ic_favorite_normal }"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_favorite_normal" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
